@@ -39,7 +39,10 @@
         geoIp = this.provider.Resolve(address);
       }
 
-      context.Features.Set(geoIp);
+      if (!context.Items.ContainsKey("geoIp"))
+      {
+        context.Items.Add("geoIp", geoIp);
+      }
 
       await this.next(context);
     }

@@ -13,36 +13,37 @@
 
     public static IGeoIp GetGeoIp(this HttpContext context)
     {
-      return context.Features.Get<IGeoIp>();
+      context.Items.TryGetValue("geoIp", out object val);
+      return val as IGeoIp;
     }
 
     public static string GetCountryCode(this HttpContext context)
     {
-      IGeoIp geoIp = context.Features.Get<IGeoIp>();
+      var geoIp = context.GetGeoIp();
       return geoIp?.CountryCode;
     }
 
     public static string GetContinentCode(this HttpContext context)
     {
-      IGeoIp geoIp = context.Features.Get<IGeoIp>();
+      var geoIp = context.GetGeoIp();
       return geoIp?.ContinentCode;
     }
 
     public static string GetPostalCode(this HttpContext context)
     {
-      IGeoIp geoIp = context.Features.Get<IGeoIp>();
+      var geoIp = context.GetGeoIp();
       return geoIp?.PostalCode;
     }
 
     public static string GetRegionCode(this HttpContext context)
     {
-      IGeoIp geoIp = context.Features.Get<IGeoIp>();
+      var geoIp = context.GetGeoIp();
       return geoIp?.RegionCode;
     }
 
     public static GeoLocation GetGeoLocation(this HttpContext context)
     {
-      IGeoIp geoIp = context.Features.Get<IGeoIp>();
+      var geoIp = context.GetGeoIp();
       return geoIp?.Location;
     }
   }
