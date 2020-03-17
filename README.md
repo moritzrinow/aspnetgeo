@@ -7,9 +7,13 @@ Add geo information to the ASP.NET Core request pipeline
 
 ## Usage
  
-### Install
+#### Install package
  
 dotnet add package AspNetGeo --version 1.0.0
+
+#### Download MaxMin databases and group them in a folder
+
+https://dev.maxmind.com/geoip/geoip2/geolite2/
  
 #### Add GeoIpMiddleware to the pipeline
 ```csharp
