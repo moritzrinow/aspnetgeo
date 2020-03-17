@@ -53,8 +53,8 @@ IGeoIp geoIP = context.GetGeoIp();
 
 #### The GeoIp data structure
 
-The name dictionaries are designed to be: locale ("en", "de" etc.) -> name.
-The codes should come as ISO-2 codes.
+The name dictionaries are designed to be: locale ("en", "de" etc.) -> name. 
+The continent & country codes should come as ISO alpha-2.
 
 ```csharp
 public interface IGeoIp
