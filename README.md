@@ -32,6 +32,19 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+#### Include in-memory cache
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+  // ...
+  
+  // Use path to directory with MaxMind database files
+  services.UseMaxMindGeoIp(Path.Combine(Directory.GetCurrentDirectory(), "data"));
+  services.AddGeoIpInMemoryCache();
+  // ...
+}
+```
+
 #### Access GeoIp data via HttpContext extension method (sits in HttpContext.Features)
 
 ```csharp
