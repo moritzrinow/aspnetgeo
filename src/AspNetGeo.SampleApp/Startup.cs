@@ -41,8 +41,12 @@ namespace AspNetGeo.SampleApp
 
       app.UseEndpoints(endpoints => { endpoints.MapGet("/", async context =>
       {
+        IGeoIp geoIP = context.GetGeoIp();
         await context.Response
-                     .WriteAsync($"Location: [{context.GetGeoLocation()?.Latitude} | {context.GetGeoLocation()?.Longitude}] Continent: [{context.GetContinentCode()}] Country: [{context.GetCountryCode()}]");
+                     .WriteAsync($"Location: [{geoIP?.Location?.Latitude} " + 
+                                 $"| {geoIP?.Location?.Longitude}] " +
+                                 $"Continent: [{context.GetContinentCode()}] " + 
+                                 $"Country: [{context.GetCountryCode()}]");
       }); });
     }
 

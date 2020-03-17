@@ -11,6 +11,11 @@
       return app;
     }
 
+    public static IGeoIp GetGeoIp(this HttpContext context)
+    {
+      return context.Features.Get<IGeoIp>();
+    }
+
     public static string GetCountryCode(this HttpContext context)
     {
       IGeoIp geoIp = context.Features.Get<IGeoIp>();
