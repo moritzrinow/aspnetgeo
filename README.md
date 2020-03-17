@@ -6,7 +6,11 @@ Add geo information to the ASP.NET Core request pipeline
 - MaxMind
 
 ## Usage
-
+ 
+### Install
+ 
+dotnet add package AspNetGeo --version 1.0.0
+ 
 #### Add GeoIpMiddleware to the pipeline
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
