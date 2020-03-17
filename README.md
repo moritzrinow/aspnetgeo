@@ -9,7 +9,7 @@ Add geo information to the ASP.NET Core request pipeline
  
 #### Install package
  
-dotnet add package AspNetGeo --version 1.0.0
+dotnet add package AspNetGeo
 
 #### Download free MaxMind databases and group them in a folder
 
