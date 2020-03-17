@@ -11,7 +11,7 @@ Add geo information to the ASP.NET Core request pipeline
  
 dotnet add package AspNetGeo --version 1.0.0
 
-#### Download MaxMin databases and group them in a folder
+#### Download free MaxMind databases and group them in a folder
 
 https://dev.maxmind.com/geoip/geoip2/geolite2/
  
