@@ -53,7 +53,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### Access GeoIp data via HttpContext extension method (sits in HttpContext.Features)
+#### Access GeoIp data via HttpContext extension method (data sits in HttpContext.Items under key 'geoIp')
 
 ```csharp
 IGeoIp geoIP = context.GetGeoIp();
