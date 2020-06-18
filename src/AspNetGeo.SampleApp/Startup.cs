@@ -19,6 +19,7 @@ namespace AspNetGeo.SampleApp
     {
       services.UseMaxMindGeoIp(Path.Combine(Directory.GetCurrentDirectory(), "data"));
       services.AddGeoIpInMemoryCache();
+      services.AddControllers();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,15 +40,10 @@ namespace AspNetGeo.SampleApp
 
       app.UseRouting();
 
-      app.UseEndpoints(endpoints => { endpoints.MapGet("/", async context =>
+      app.UseEndpoints(endpoints =>
       {
-        IGeoIp geoIP = context.GetGeoIp();
-        await context.Response
-                     .WriteAsync($"Location: [{geoIP?.Location?.Latitude} " + 
-                                 $"| {geoIP?.Location?.Longitude}] " +
-                                 $"Continent: [{context.GetContinentCode()}] " + 
-                                 $"Country: [{context.GetCountryCode()}]");
-      }); });
+        endpoints.MapControllers();
+      });
     }
 
     private IPAddress GenerateIpv4()

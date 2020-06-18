@@ -2,3 +2,4 @@ bin/
 obj/
 .vs/
 *.mmdb
+/src/AspNetGeo.SampleApp/AspNetGeo.SampleApp.csproj.user
